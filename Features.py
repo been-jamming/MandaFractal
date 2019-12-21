@@ -6,7 +6,7 @@ pygame.display.init()
 pygame.font.init()
 
 def Text(screen,size,pos,color,text):
-    font=pygame.font.Font("arial.ttf",size)
+    font=pygame.font.SysFont("arial",size)
     label=font.render(text,1,color)
     screen.blit(label,pos)
 
@@ -326,4 +326,4 @@ if __name__ == "__main__":
         if True in updates:
             pygame.display.flip()
             if updates[0]==True:
-                print s.getValue(0)
+                print(s.getValue(0))

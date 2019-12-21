@@ -1,12 +1,12 @@
 # -*- coding: cp1252 -*-
 from __future__ import division
 import pygame as g
+import pygame
 import math
-import pygame._view
 import Features
 import sys
 import os
-import thread,multiprocessing
+import multiprocessing
 
 g.init()
 g.display.init()
@@ -102,9 +102,6 @@ class Fractal():
         try:
             self.screen.set_at((x,y),c)
         except Exception as e:
-            print c
-            print color
-            print e
             pygame.quit()
             sys.exit()
         if flip==True:
@@ -127,7 +124,7 @@ class Fractal():
         return c
 
 def Text(screen,size,pos,color,text):
-    font=g.font.Font("arial.ttf",size)
+    font=g.font.SysFont("arial",size)
     label=font.render(text,1,color)
     screen.blit(label,pos)
 
@@ -480,8 +477,6 @@ if __name__=="__main__":
             justrendered=False
         if render==True:
             Fractals=Fractal(screen,img,real,quality,zoom,xoffset,yoffset,600,600,color,colorscheme,power,rotation)
-            if color==False:
-                print "hi"
             rect=g.Rect((0,0),(600,600))
             g.draw.rect(screen,(0,0,0),rect)
             Text(screen,50,(0,30),(0,0,255),"Loading...")
